@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  perspective: 1px; /* property is used to give a 3D-positioned element some perspective */
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+ a {
+	 color: inherit;
+}
+
+h1 {
+  font-size: 72px;
+}
+
+h2 {
+    padding: 10px 0;
+}
+
+p {
+  font-size: 20px;
+  line-height: 150%;
+  color: #333;
+}
+
+header {
+    position: absolute;
+    z-index: 99999999;
+}
+
+ .menu {
+	 filter: url('#shadowed-goo');
+}
+ .menu-item, .menu-open-button {
+	 background: #00bcd4;
+	 border-radius: 100%;
+	 width: 80px;
+	 height: 80px;
+	 margin-left: -40px;
+	 position: absolute;
+	 top: 20px;
+	 color: white;
+	 text-align: center;
+	 line-height: 80px;
+	 transform: translate3d(0, 0, 0);
+	 transition: transform ease-out 200ms;
+}
+ .menu-open {
+	 display: none;
+}
+ .hamburger {
+	 width: 25px;
+	 height: 3px;
+	 background: white;
+	 display: block;
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 margin-left: -12.5px;
+	 margin-top: -1.5px;
+	 transition: transform 200ms;
+}
+ .hamburger-1 {
+	 transform: translate3d(0, -8px, 0);
+}
+ .hamburger-2 {
+	 transform: translate3d(0, 0, 0);
+}
+ .hamburger-3 {
+	 transform: translate3d(0, 8px, 0);
+}
+ .menu-open:checked + .menu-open-button .hamburger-1 {
+	 transform: translate3d(0, 0, 0) rotate(45deg);
+}
+ .menu-open:checked + .menu-open-button .hamburger-2 {
+	 transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+ .menu-open:checked + .menu-open-button .hamburger-3 {
+	 transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+ .menu {
+	 padding-top: 20px;
+	 padding-left: 80px;
+	 width: 650px;
+	 height: 150px;
+	 box-sizing: border-box;
+	 font-size: 20px;
+	 text-align: left;
+}
+ .menu-item:hover {
+	 background: white;
+	 color: #00bcd4;
+}
+ .menu-item:nth-child(3) {
+	 transition-duration: 180ms;
+}
+ .menu-item:nth-child(4) {
+	 transition-duration: 180ms;
+}
+ .menu-item:nth-child(5) {
+	 transition-duration: 180ms;
+}
+ .menu-item:nth-child(6) {
+	 transition-duration: 180ms;
+}
+ .menu-open-button {
+	 z-index: 2;
+	 transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	 transition-duration: 400ms;
+	 transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+	 cursor: pointer;
+}
+ .menu-open-button:hover {
+	 transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+ .menu-open:checked + .menu-open-button {
+	 transition-timing-function: linear;
+	 transition-duration: 200ms;
+	 transform: scale(0.8, 0.8) translate3d(0, 0, 0);
+}
+ .menu-open:checked ~ .menu-item {
+	 transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+ .menu-open:checked ~ .menu-item:nth-child(3) {
+	 transition-duration: 190ms;
+	 transform: translate3d(110px, 0, 0);
+}
+ .menu-open:checked ~ .menu-item:nth-child(4) {
+	 transition-duration: 290ms;
+	 transform: translate3d(220px, 0, 0);
+}
+ .menu-open:checked ~ .menu-item:nth-child(5) {
+	 transition-duration: 390ms;
+	 transform: translate3d(330px, 0, 0);
+}
+ .menu-open:checked ~ .menu-item:nth-child(6) {
+	 transition-duration: 490ms;
+	 transform: translate3d(440px, 0, 0);
+}
+
+
+/*===========================
+
+
+  Slide Styling
+
+
+==============================*/
+
+.slide {
+    position: relative;
+    padding: 100px;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 10px rgb(0 0 0 / .7);
+    transform-style: inherit;
+}
+
+.iphone-hover {
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.title {
+    width: 50%;
+    padding: 5%;
+    background: aliceblue;
+    border-radius: 5px;
+    box-shadow: 0 0 8px rgb(0 0 0 / .7);
+}
+
+.slide:nth-child(even) .title {
+    margin-left: 0;
+    margin-right: auto;
+    position: relative;
+}
+
+.slide:nth-child(odd) .title {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.slide,
+.slide:before {
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 2px #000;
+}
+
+.top {
+  background-image: url("../images/iphone-background.jpg");
+  z-index: 2;
+}
+
+.top h1 {
+  transform: translateZ(.25px) scale(.75);
+  transform-origin: 50% 100%;
+  margin-top: 250px;
+}
+
+.top p {
+    color: white;
+    font-size: 64px;
+    transform: translateZ(.25px) scale(.75);
+    transform-origin: 50% 100%;
+}
+
+.slide1:before {
+  background-image: url("../images/iphone-case.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+.slide2 {
+  background-image: url("../images/california-sunset.jpg");
+  z-index: 2;
+}
+
+.slide3:before{
+  background-image: url("../images/iphone-camera.jpg");
+  transform: translateZ(-1px) scale(2);
+}
+
+.slide4 {
+    text-align: center;
+    color: white;
+    font-size: 54px;
+    background: #333;
+}
+
+.shop-btn {
+    color: #222222;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background: white;
+    transition: .3s;
+    z-index: 9;
+    position: relative;
+    top: 35px;
+}
+
+.shop-btn:hover {
+  background-color: #222222;
+  color: white;
+  transition: .3s;
+}
